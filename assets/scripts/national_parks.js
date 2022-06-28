@@ -43,6 +43,7 @@ let searchDropdown = document.querySelector("#searchDropdown");
 // console.log(searchByLocationRadio);
 // console.log(searchByParkTypeRadio);
 
+// load locations into dropdown
 searchByLocationRadio.addEventListener("click", function(event) {
     console.log('location radio click');
     locationsArray.forEach((location) => {
@@ -57,10 +58,34 @@ searchByLocationRadio.addEventListener("click", function(event) {
     });
 });
 
+// load park types into dropdown
 searchByParkTypeRadio.addEventListener("click", function(event) {
     console.log('type radio click');
 });
 
+// find parks based on location
 searchDropdown.addEventListener("change", function(event) {
-    console.log(this.value);
+    console.log("find parks in: " + this.value);
+
+    let filteredParks = nationalParksArray.filter((park) => {
+        return park.State.toLowerCase() === this.value.toLowerCase();
+    });
+
+    console.log(filteredParks);
+
+    const tableBody = document.querySelector("#parksTable tbody");
+
+    tableBody.innerHTML = "";
+
+    filteredParks.forEach(park => {
+        console.log(park);
+        const newRow = `<tr>
+                            <td>${park.LocationName}</td>
+                            <td>${park.Address}</td>
+                            <td>${park.City}</td>
+                            <td>${park.State}</td>
+                            <td>${park.LocationID}</td>
+                        </tr>`;
+        tableBody.innerHTML += newRow;
+    });
 });
