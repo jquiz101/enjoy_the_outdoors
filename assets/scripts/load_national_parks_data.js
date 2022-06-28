@@ -8,6 +8,11 @@ window.onload = function(){
 
     loadJsonData("assets/data/locations.json").then((locations) => {
         locationsArray = locations;
+
+        // if want to work with data right away once available, can do that here
+        locationsArray.forEach((location) => {
+            theSampleUL.innerHTML += `<li>${location}</li>`
+        });
     })
 
     loadJsonData("assets/data/nationalparks.json").then((nationalParks) => {
