@@ -39,6 +39,7 @@ theDemoButton.addEventListener("click", function(event) {
 let searchByLocationRadio = document.querySelector("#searchByLocation");
 let searchByParkTypeRadio = document.querySelector("#searchByParkType");
 let searchDropdown = document.querySelector("#searchDropdown");
+let searchDropdownByType = document.querySelector("#searchDropdownByType");
 
 // console.log(searchByLocationRadio);
 // console.log(searchByParkTypeRadio);
@@ -61,6 +62,13 @@ searchByLocationRadio.addEventListener("click", function(event) {
 // load park types into dropdown
 searchByParkTypeRadio.addEventListener("click", function(event) {
     console.log('type radio click');
+
+    parkTypesArray.forEach((parkType) => {
+        var opt = document.createElement('option');
+        opt.value = parkType;
+        opt.innerHTML = parkType;
+        searchDropdownByType.appendChild(opt);
+    });
 });
 
 // find parks based on location
