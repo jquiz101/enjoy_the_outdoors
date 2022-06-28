@@ -2,12 +2,12 @@
 // available to it because we included load_national_parks_data.js before this file
 // in the national_parks.html
 
-console.log(nationalParksArray);
+// console.log(nationalParksArray);
 
-setTimeout(() => {
-    // console.log(nationalParksArray);
-    console.log("hi");
-}, 1000);
+// setTimeout(() => {
+//     // console.log(nationalParksArray);
+//     console.log("hi");
+// }, 1000);
 
 let theDemoButton = document.querySelector("#theDemoButton");
 let theSampleUL = document.querySelector("#locations");
@@ -35,6 +35,9 @@ theDemoButton.addEventListener("click", function(event) {
     parkTypesUL.classList.remove("d-none");
     nationalParksUL.classList.remove("d-none");
 });
+
+
+
 
 let searchByLocationRadio = document.querySelector("#searchByLocation");
 let searchByParkTypeRadio = document.querySelector("#searchByParkType");
