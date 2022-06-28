@@ -33,8 +33,9 @@
     </ul>
 
 
-    <p>Search By:</p>
     <div>
+        Search By:
+
         <input type="radio" id="searchByLocation"
         name="searchBy" value="location">
         <label for="searchByLocation">Location</label>
@@ -44,21 +45,21 @@
         <label for="searchByParkType">Type</label>
     </div>
     <div>
-        <select name="searchDropdown" id="searchDropdown">
+        <select name="searchDropdownByLocation" id="searchDropdownByLocation" class="d-none">
             <option value="">---Please make a location selection---</option>
             <!-- <option value="second">Second Value</option> -->
             <!-- <option value="third">Third Value</option> -->
           </select>
     </div>
     <div>
-        <select name="searchDropdownByType" id="searchDropdownByType">
+        <select name="searchDropdownByType" id="searchDropdownByType" class="d-none">
             <option value="">---Please make a type selection---</option>
             <!-- <option value="second">Second Value</option> -->
             <!-- <option value="third">Third Value</option> -->
           </select>
     </div>
 
-    <table id="parksTable">
+    <table id="parksTable" class="d-none">
         <thead>
             <th>Location Name</th>
             <th>Address</th>

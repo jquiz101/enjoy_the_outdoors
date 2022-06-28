@@ -41,8 +41,10 @@ theDemoButton.addEventListener("click", function(event) {
 
 let searchByLocationRadio = document.querySelector("#searchByLocation");
 let searchByParkTypeRadio = document.querySelector("#searchByParkType");
-let searchDropdown = document.querySelector("#searchDropdown");
+let searchDropdownByLocation = document.querySelector("#searchDropdownByLocation");
 let searchDropdownByType = document.querySelector("#searchDropdownByType");
+const parksTable = document.querySelector("#parksTable");
+const parksTableBody = document.querySelector("#parksTable tbody");
 
 // console.log(searchByLocationRadio);
 // console.log(searchByParkTypeRadio);
@@ -50,32 +52,47 @@ let searchDropdownByType = document.querySelector("#searchDropdownByType");
 // load locations into dropdown
 searchByLocationRadio.addEventListener("click", function(event) {
     console.log('location radio click');
-    locationsArray.forEach((location) => {
-        var opt = document.createElement('option');
-        opt.value = location;
-        opt.innerHTML = location;
-        searchDropdown.appendChild(opt);
 
-        // mainDropdown.innerHTML += `<option value="${location}">${location}</option>`
-        // theSampleUL.innerHTML += `<li>  ${location}</li>`
-        // theSampleUL.classList.remove("d-none");
-    });
+    parksTable.classList.add("d-none");
+    searchDropdownByLocation.value = "";
+
+    console.log("length: " + searchDropdownByLocation.options.length);
+
+    if (searchDropdownByLocation.options.length <= 1) {
+        locationsArray.forEach((location) => {
+            var opt = document.createElement('option');
+            opt.value = location;
+            opt.innerHTML = location;
+            searchDropdownByLocation.appendChild(opt);
+        });
+    }
+    
+    searchDropdownByLocation.classList.remove("d-none");
+    searchDropdownByType.classList.add("d-none");
 });
 
 // load park types into dropdown
 searchByParkTypeRadio.addEventListener("click", function(event) {
     console.log('type radio click');
 
-    parkTypesArray.forEach((parkType) => {
-        var opt = document.createElement('option');
-        opt.value = parkType;
-        opt.innerHTML = parkType;
-        searchDropdownByType.appendChild(opt);
-    });
+    parksTable.classList.add("d-none");
+    searchDropdownByType.value = "";
+
+    if (searchDropdownByType.options.length <= 1) {
+        parkTypesArray.forEach((parkType) => {
+            var opt = document.createElement('option');
+            opt.value = parkType;
+            opt.innerHTML = parkType;
+            searchDropdownByType.appendChild(opt);
+        });
+    }    
+
+    searchDropdownByLocation.classList.add("d-none");
+    searchDropdownByType.classList.remove("d-none");
 });
 
 // find parks based on location
-searchDropdown.addEventListener("change", function(event) {
+searchDropdownByLocation.addEventListener("change", function(event) {
     console.log("find parks in: " + this.value);
 
     let filteredParks = nationalParksArray.filter((park) => {
@@ -84,9 +101,9 @@ searchDropdown.addEventListener("change", function(event) {
 
     console.log(filteredParks);
 
-    const tableBody = document.querySelector("#parksTable tbody");
+    
 
-    tableBody.innerHTML = "";
+    parksTableBody.innerHTML = "";
 
     filteredParks.forEach(park => {
         console.log(park);
@@ -97,6 +114,8 @@ searchDropdown.addEventListener("change", function(event) {
                             <td>${park.State}</td>
                             <td>${park.LocationID}</td>
                         </tr>`;
-        tableBody.innerHTML += newRow;
+        parksTableBody.innerHTML += newRow;
     });
+
+    parksTable.classList.remove("d-none");
 });
