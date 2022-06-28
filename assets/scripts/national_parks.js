@@ -35,3 +35,32 @@ theDemoButton.addEventListener("click", function(event) {
     parkTypesUL.classList.remove("d-none");
     nationalParksUL.classList.remove("d-none");
 });
+
+let searchByLocationRadio = document.querySelector("#searchByLocation");
+let searchByParkTypeRadio = document.querySelector("#searchByParkType");
+let searchDropdown = document.querySelector("#searchDropdown");
+
+// console.log(searchByLocationRadio);
+// console.log(searchByParkTypeRadio);
+
+searchByLocationRadio.addEventListener("click", function(event) {
+    console.log('location radio click');
+    locationsArray.forEach((location) => {
+        var opt = document.createElement('option');
+        opt.value = location;
+        opt.innerHTML = location;
+        searchDropdown.appendChild(opt);
+
+        // mainDropdown.innerHTML += `<option value="${location}">${location}</option>`
+        // theSampleUL.innerHTML += `<li>  ${location}</li>`
+        // theSampleUL.classList.remove("d-none");
+    });
+});
+
+searchByParkTypeRadio.addEventListener("click", function(event) {
+    console.log('type radio click');
+});
+
+searchDropdown.addEventListener("change", function(event) {
+    console.log(this.value);
+});

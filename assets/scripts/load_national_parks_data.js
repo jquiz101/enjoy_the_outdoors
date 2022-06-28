@@ -10,9 +10,9 @@ window.onload = function(){
         locationsArray = locations;
 
         // if want to work with data right away once available, can do that here
-        locationsArray.forEach((location) => {
-            theSampleUL.innerHTML += `<li>${location}</li>`
-        });
+        // locationsArray.forEach((location) => {
+        //     theSampleUL.innerHTML += `<li>${location}</li>`
+        // });
     })
 
     loadJsonData("assets/data/nationalparks.json").then((nationalParks) => {
