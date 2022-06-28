@@ -38,6 +38,7 @@ theDemoButton.addEventListener("click", function(event) {
 
 
 
+//-------------------------------------------------------------------------------------
 
 let searchByLocationRadio = document.querySelector("#searchByLocation");
 let searchByParkTypeRadio = document.querySelector("#searchByParkType");
@@ -106,6 +107,34 @@ searchDropdownByLocation.addEventListener("change", function(event) {
     parksTableBody.innerHTML = "";
 
     filteredParks.forEach(park => {
+        console.log(park);
+        const newRow = `<tr>
+                            <td>${park.LocationName}</td>
+                            <td>${park.Address}</td>
+                            <td>${park.City}</td>
+                            <td>${park.State}</td>
+                            <td>${park.LocationID}</td>
+                        </tr>`;
+        parksTableBody.innerHTML += newRow;
+    });
+
+    parksTable.classList.remove("d-none");
+});
+
+// find parks based on type
+searchDropdownByType.addEventListener("change", function(event) {
+    console.log("find parks of type: " + this.value);
+
+    let filteredParksByType = nationalParksArray.filter((park) => {
+        return park.LocationName.toLowerCase().indexOf(this.value.toLowerCase()) > -1;
+    });
+
+    console.log(filteredParksByType);
+
+    
+    parksTableBody.innerHTML = "";
+
+    filteredParksByType.forEach(park => {
         console.log(park);
         const newRow = `<tr>
                             <td>${park.LocationName}</td>
