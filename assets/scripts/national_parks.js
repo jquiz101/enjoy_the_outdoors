@@ -103,17 +103,7 @@ viewAllParksRadio.addEventListener("click", function(event) {
 
     parksTableBody.innerHTML = "";
 
-    nationalParksArray.forEach(park => {
-        // console.log(park);
-        const newRow = `<tr>
-                            <td>${park.LocationName}</td>
-                            <td>${park.Address}</td>
-                            <td>${park.City}</td>
-                            <td>${park.State}</td>
-                            <td>${park.LocationID}</td>
-                        </tr>`;
-        parksTableBody.innerHTML += newRow;
-    });
+    generateParksDisplay();
 
     parksTable.classList.remove("d-none");
 });
@@ -177,3 +167,22 @@ searchDropdownByType.addEventListener("change", function(event) {
 
     parksTable.classList.remove("d-none");
 });
+
+function generateParksDisplay() {
+    nationalParksArray.forEach(park => {
+        // console.log(park);
+
+        let nameRow = `<td>${park.LocationName}</td>`;
+        if (park.Visit) {
+            nameRow = `<td><a href="${park.Visit}" target="_blank">${park.LocationName}</a></td>`;
+        }
+        const newRow = `<tr>
+                            ${nameRow}
+                            <td>${park.Address}</td>
+                            <td>${park.City}</td>
+                            <td>${park.State}</td>
+                            <td>${park.LocationID}</td>
+                        </tr>`;
+        parksTableBody.innerHTML += newRow;
+    });
+}
