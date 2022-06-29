@@ -5,6 +5,7 @@ let mtnName = document.querySelector("#name");
 let mtnDesc = document.querySelector("#desc");
 let mtnElevation = document.querySelector("#elevation");
 let mtnEffort = document.querySelector("#effort");
+let mtnImage = document.querySelector("#image");
 let mtnInfo = document.querySelector("#info");
 
 setTimeout(() => {
@@ -28,6 +29,8 @@ mountainsDropdown.addEventListener("change", function(event) {
     mtnDesc.innerHTML = foundMtn.desc;
     mtnElevation.innerHTML = foundMtn.elevation;
     mtnEffort.innerHTML = foundMtn.effort;
+
+    mtnImage.innerHTML = `<img src="assets/images/mountains/${foundMtn.img}">`;
 
     mtnInfo.classList.remove("d-none");
 });
