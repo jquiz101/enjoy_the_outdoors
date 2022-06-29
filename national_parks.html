@@ -33,66 +33,67 @@
     </nav>
 
     <div class="container-fluid">
+        <h1 class="p-3 text-center">National Parks Search Page!</h1>
 
-    <h1>National Parks Search Page!</h1>
+        <!-- <button id="theDemoButton" class="d-none">Demo Button</button>
 
-    <button id="theDemoButton" class="d-none">Demo Button</button>
+        <ul id="locations" class="d-none">
+            <li>This is my locatoins list item</li>
+        </ul>
 
-    <ul id="locations" class="d-none">
-        <li>This is my locatoins list item</li>
-    </ul>
+        <ul id="parkTypes" class="d-none">
+            <li>This is my park types list item</li>
+        </ul>
 
-    <ul id="parkTypes" class="d-none">
-        <li>This is my park types list item</li>
-    </ul>
-
-    <ul id="nationalParks" class="d-none">
-        <li>This is my national parks list item</li>
-    </ul>
+        <ul id="nationalParks" class="d-none">
+            <li>This is my national parks list item</li>
+        </ul> -->
 
 
-    <div>
-        Search By:
+        <section class="p-3 text-center">
+            <h5>Search By:</h5>
+            
 
-        <input type="radio" id="searchByLocation"
-        name="searchBy" value="location">
-        <label for="searchByLocation">Location</label>
+            <input type="radio" id="searchByLocation" class="btn-check" autocomplete="off"
+            name="searchBy" value="location">
+            <label for="searchByLocation" class="btn btn-success">Location</label>
 
-        <input type="radio" id="searchByParkType"
-        name="searchBy" value="parkType">
-        <label for="searchByParkType">Type</label>
+            <input type="radio" id="searchByParkType" class="btn-check" autocomplete="off"
+            name="searchBy" value="parkType">
+            <label for="searchByParkType" class="btn btn-success">Type</label>
 
-        <input type="radio" id="viewAllParks"
-        name="searchBy" value="all">
-        <label for="viewAllParks">View All</label>
-    </div>
-    <div>
-        <select name="searchDropdownByLocation" id="searchDropdownByLocation" class="d-none">
-            <option value="">---Please make a location selection---</option>
-            <!-- <option value="second">Second Value</option> -->
-            <!-- <option value="third">Third Value</option> -->
-          </select>
-    </div>
-    <div>
-        <select name="searchDropdownByType" id="searchDropdownByType" class="d-none">
-            <option value="">---Please make a type selection---</option>
-            <!-- <option value="second">Second Value</option> -->
-            <!-- <option value="third">Third Value</option> -->
-          </select>
-    </div>
+            <input type="radio" id="viewAllParks" class="btn-check" autocomplete="off"
+            name="searchBy" value="all">
+            <label for="viewAllParks" class="btn btn-success">View All</label>
+        </section>
+        
+        <div class="text-center">
+            <select name="searchDropdownByLocation" id="searchDropdownByLocation" class="d-none form-select">
+                <option value="">---Please make a location selection---</option>
+                <!-- <option value="second">Second Value</option> -->
+                <!-- <option value="third">Third Value</option> -->
+            </select>
+        </div>
+        <div class="text-center">
+            <select name="searchDropdownByType" id="searchDropdownByType" class="d-none form-select">
+                <option value="">---Please make a type selection---</option>
+                <!-- <option value="second">Second Value</option> -->
+                <!-- <option value="third">Third Value</option> -->
+            </select>
+        </div>
 
-    <table id="parksTable" class="d-none">
-        <thead>
-            <th>Location Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Location ID</th>
-        </thead>
-        <tbody>
-    
-        </tbody>
-    </table>
+        <table id="parksTable" class="d-none table table-striped">
+            <thead>
+                <th>Location Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Location ID</th>
+            </thead>
+            <tbody>
+        
+            </tbody>
+        </table>
 
     </div>
 

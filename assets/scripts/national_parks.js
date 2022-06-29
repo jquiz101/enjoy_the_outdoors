@@ -9,32 +9,32 @@
 //     console.log("hi");
 // }, 1000);
 
-let theDemoButton = document.querySelector("#theDemoButton");
-let theSampleUL = document.querySelector("#locations");
-let parkTypesUL = document.querySelector("#parkTypes");
-let nationalParksUL = document.querySelector("#nationalParks");
+// let theDemoButton = document.querySelector("#theDemoButton");
+// let theSampleUL = document.querySelector("#locations");
+// let parkTypesUL = document.querySelector("#parkTypes");
+// let nationalParksUL = document.querySelector("#nationalParks");
 
-theDemoButton.addEventListener("click", function(event) {
-    console.log(locationsArray);
-    console.log(parkTypesArray);
-    console.log(nationalParksArray);    
+// theDemoButton.addEventListener("click", function(event) {
+//     console.log(locationsArray);
+//     console.log(parkTypesArray);
+//     console.log(nationalParksArray);    
     
-    locationsArray.forEach((location) => {
-        // theSampleUL.innerHTML += `<li>${location}</li>`
-    });
+//     locationsArray.forEach((location) => {
+//         // theSampleUL.innerHTML += `<li>${location}</li>`
+//     });
 
-    parkTypesArray.forEach((parkType) => {
-        parkTypesUL.innerHTML += `<li>${parkType}</li>`
-    });
+//     parkTypesArray.forEach((parkType) => {
+//         parkTypesUL.innerHTML += `<li>${parkType}</li>`
+//     });
 
-    nationalParksArray.forEach((park) => {
-        nationalParksUL.innerHTML += `<li>${park.LocationName}</li>`
-    });
+//     nationalParksArray.forEach((park) => {
+//         nationalParksUL.innerHTML += `<li>${park.LocationName}</li>`
+//     });
 
-    theSampleUL.classList.remove("d-none");
-    parkTypesUL.classList.remove("d-none");
-    nationalParksUL.classList.remove("d-none");
-});
+//     theSampleUL.classList.remove("d-none");
+//     parkTypesUL.classList.remove("d-none");
+//     nationalParksUL.classList.remove("d-none");
+// });
 
 
 
