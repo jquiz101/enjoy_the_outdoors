@@ -65,6 +65,8 @@ searchByLocationRadio.addEventListener("click", function(event) {
             opt.value = location;
             opt.innerHTML = location;
             searchDropdownByLocation.appendChild(opt);
+
+            // searchDropdownByLocation.innerHTML += `<option value="${location}">${location}</option>`
         });
     }
     
@@ -95,19 +97,22 @@ searchByParkTypeRadio.addEventListener("click", function(event) {
 // find parks based on location
 searchDropdownByLocation.addEventListener("change", function(event) {
     console.log("find parks in: " + this.value);
+    console.log("find parks in: " + event.target);  // the thing that the event happened on
+    console.log("find parks in: " + event.target.value);  // this is better; scalable, testable
+    console.log("find parks in: " + searchDropdownByLocation.value);
 
     let filteredParks = nationalParksArray.filter((park) => {
         return park.State.toLowerCase() === this.value.toLowerCase();
     });
 
-    console.log(filteredParks);
+    // console.log(filteredParks);
 
     
 
     parksTableBody.innerHTML = "";
 
     filteredParks.forEach(park => {
-        console.log(park);
+        // console.log(park);
         const newRow = `<tr>
                             <td>${park.LocationName}</td>
                             <td>${park.Address}</td>
