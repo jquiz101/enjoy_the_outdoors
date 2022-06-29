@@ -42,6 +42,7 @@ theDemoButton.addEventListener("click", function(event) {
 
 let searchByLocationRadio = document.querySelector("#searchByLocation");
 let searchByParkTypeRadio = document.querySelector("#searchByParkType");
+let viewAllParksRadio = document.querySelector("#viewAllParks");
 let searchDropdownByLocation = document.querySelector("#searchDropdownByLocation");
 let searchDropdownByType = document.querySelector("#searchDropdownByType");
 const parksTable = document.querySelector("#parksTable");
@@ -92,6 +93,29 @@ searchByParkTypeRadio.addEventListener("click", function(event) {
 
     searchDropdownByLocation.classList.add("d-none");
     searchDropdownByType.classList.remove("d-none");
+});
+
+viewAllParksRadio.addEventListener("click", function(event) {
+    console.log("view all clicked");
+
+    searchDropdownByLocation.classList.add("d-none");
+    searchDropdownByType.classList.add("d-none");
+
+    parksTableBody.innerHTML = "";
+
+    nationalParksArray.forEach(park => {
+        // console.log(park);
+        const newRow = `<tr>
+                            <td>${park.LocationName}</td>
+                            <td>${park.Address}</td>
+                            <td>${park.City}</td>
+                            <td>${park.State}</td>
+                            <td>${park.LocationID}</td>
+                        </tr>`;
+        parksTableBody.innerHTML += newRow;
+    });
+
+    parksTable.classList.remove("d-none");
 });
 
 // find parks based on location
