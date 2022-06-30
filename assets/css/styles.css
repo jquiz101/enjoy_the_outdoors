@@ -1,0 +1,19 @@
+.hero{
+
+    /* adding background image */
+    /* background-image: url("../images/homepage04b.jpg"); */
+    background-image: url("https://s7.bluegreenvacations.com/is/image/BGV/collection-great-outdoors-lg?$bg2-hero-lg$");
+    
+
+    /* set the height of the Jumbotron */
+    height: 340px;
+
+    /* stretch the background image so it covers the entire jumbotron */
+    background-size: cover;
+
+    /* make sure the background does not repeat */
+    background-repeat: no-repeat;
+
+    /* set the background to be fixed so the page appears to scroll over it */
+    background-attachment: fixed;
+}
