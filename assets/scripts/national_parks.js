@@ -95,6 +95,7 @@ searchByParkTypeRadio.addEventListener("click", function(event) {
     searchDropdownByType.classList.remove("d-none");
 });
 
+
 // load all parks
 viewAllParksRadio.addEventListener("click", function(event) {
     console.log("view all clicked");
@@ -102,11 +103,7 @@ viewAllParksRadio.addEventListener("click", function(event) {
     searchDropdownByLocation.classList.add("d-none");
     searchDropdownByType.classList.add("d-none");
 
-    parksTableBody.innerHTML = "";
-
     generateParksDisplay(nationalParksArray);
-
-    parksTable.classList.remove("d-none");
 });
 
 // find parks based on location
@@ -120,26 +117,7 @@ searchDropdownByLocation.addEventListener("change", function(event) {
         return park.State.toLowerCase() === this.value.toLowerCase();
     });
 
-    // console.log(filteredParks);
-
-    
-
-    parksTableBody.innerHTML = "";
-
     generateParksDisplay(filteredParks);
-    // filteredParks.forEach(park => {
-    //     // console.log(park);
-    //     const newRow = `<tr>
-    //                         <td>${park.LocationName}</td>
-    //                         <td>${park.Address}</td>
-    //                         <td>${park.City}</td>
-    //                         <td>${park.State}</td>
-    //                         <td>${park.LocationID}</td>
-    //                     </tr>`;
-    //     parksTableBody.innerHTML += newRow;
-    // });
-
-    parksTable.classList.remove("d-none");
 });
 
 // find parks based on type
@@ -150,29 +128,13 @@ searchDropdownByType.addEventListener("change", function(event) {
         return park.LocationName.toLowerCase().indexOf(this.value.toLowerCase()) > -1;
     });
 
-    console.log(filteredParksByType);
-
-    
-    parksTableBody.innerHTML = "";
-
     generateParksDisplay(filteredParksByType);
-    // filteredParksByType.forEach(park => {
-    //     console.log(park);
-    //     const newRow = `<tr>
-    //                         <td>${park.LocationName}</td>
-    //                         <td>${park.Address}</td>
-    //                         <td>${park.City}</td>
-    //                         <td>${park.State}</td>
-    //                         <td>${park.LocationID}</td>
-    //                     </tr>`;
-    //     parksTableBody.innerHTML += newRow;
-    // });
-
-    parksTable.classList.remove("d-none");
 });
 
 
 function generateParksDisplay(sourceArray) {
+    parksTableBody.innerHTML = "";
+
     sourceArray.forEach(park => {
         // console.log(park);
 
@@ -189,4 +151,6 @@ function generateParksDisplay(sourceArray) {
                         </tr>`;
         parksTableBody.innerHTML += newRow;
     });
+
+    parksTable.classList.remove("d-none");
 }
