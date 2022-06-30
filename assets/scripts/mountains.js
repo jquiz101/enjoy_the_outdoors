@@ -10,6 +10,8 @@ let mtnSunset = document.querySelector("#sunset");
 let mtnImage = document.querySelector("#image");
 let mtnInfo = document.querySelector("#info");
 
+let btnLucky = document.querySelector("#random");
+
 setTimeout(() => {
     // console.log("hi");
     // console.log(mountainsArray);
@@ -27,6 +29,23 @@ mountainsDropdown.addEventListener("change", function(event) {
 
     console.log(foundMtn);
 
+    displayMountain(foundMtn);
+});
+
+btnLucky.addEventListener("click", function(event) {
+    // console.log("-lucky-");
+    // console.log(mountainsArray.length);
+    
+    let idx = Math.floor(Math.random() * mountainsArray.length);
+    // console.log(idx);
+
+    const idxMtn = mountainsArray[idx];
+    console.log(idxMtn);
+
+    displayMountain(idxMtn);
+});
+
+function displayMountain(foundMtn) {
     mtnName.innerHTML = foundMtn.name;
     mtnDesc.innerHTML = foundMtn.desc;
     mtnElevation.innerHTML = foundMtn.elevation;
@@ -41,7 +60,7 @@ mountainsDropdown.addEventListener("change", function(event) {
     });
 
     mtnInfo.classList.remove("d-none");
-});
+}
 
 
 //function that can "fetch" the sunset/sunrise times
