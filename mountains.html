@@ -33,25 +33,26 @@
     </nav>
 
     <div class="container-fluid">
+        <h1 class="p-3 text-center">Mountains Information Page!</h1>
 
-    <h1>Mountains Information Page!</h1>
-
-    <div>
-        <select name="mountainsDropdown" id="mountainsDropdown">
-            <option value="">---Please make a mountain selection---</option>
-            <!-- <option value="second">Second Value</option> -->
-            <!-- <option value="third">Third Value</option> -->
-          </select>
-    </div>
-
-    <div id="info" class="d-none">
-        <div id="image"></div>
-        <h4 id="name"></h4>
-        <div id="desc"></div>
-        <div>Elevation: <span id="elevation"></span> ft</div>
-        <div>Effort: <span id="effort"></span></div>
-    </div>
-
+        <section class="p-3 text-center">            
+            <select name="mountainsDropdown" id="mountainsDropdown" class="form-select">
+                <option value="">---Please make a mountain selection---</option>
+                <!-- <option value="second">Second Value</option> -->
+                <!-- <option value="third">Third Value</option> -->
+            </select>            
+        </section>
+        <section class="p-3 text-center">
+            <div id="info" class="d-none card p-2">
+                <div id="image"></div>
+                <div class="card-body">
+                    <h4 id="name"></h4>
+                    <div id="desc"></div>
+                    <div>Elevation: <span id="elevation"></span> ft</div>
+                    <div>Effort: <span id="effort"></span></div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
