@@ -5,6 +5,8 @@ let mtnName = document.querySelector("#name");
 let mtnDesc = document.querySelector("#desc");
 let mtnElevation = document.querySelector("#elevation");
 let mtnEffort = document.querySelector("#effort");
+let mtnSunrise = document.querySelector("#sunrise");
+let mtnSunset = document.querySelector("#sunset");
 let mtnImage = document.querySelector("#image");
 let mtnInfo = document.querySelector("#info");
 
@@ -32,5 +34,24 @@ mountainsDropdown.addEventListener("change", function(event) {
 
     mtnImage.innerHTML = `<img src="assets/images/mountains/${foundMtn.img}">`;
 
+    getSunsetForMountain(foundMtn.coords.lat, foundMtn.coords.lng).then(sunsetData => {
+        console.log(sunsetData.results)
+        mtnSunrise.innerHTML = sunsetData.results.sunrise;
+        mtnSunset.innerHTML = sunsetData.results.sunset;
+    });
+
     mtnInfo.classList.remove("d-none");
 });
+
+
+//function that can "fetch" the sunset/sunrise times
+async function getSunsetForMountain(lat, lng){
+    let response = await fetch(`https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`)
+    let data = await response.json()
+    return data
+}
+
+//Using the function to fetch the sunset/sunrise times for a specific mountain 
+// getSunsetForMountain("44.320686", "-71.291742").then(sunsetData => {
+//     console.log(sunsetData.results)
+// });

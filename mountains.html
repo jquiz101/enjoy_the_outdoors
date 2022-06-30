@@ -43,14 +43,20 @@
                 <!-- <option value="third">Third Value</option> -->
             </select>            
         </section>
-        <section class="p-3 text-center">
+        <section class="p-3 text-center">            
             <div id="info" class="d-none card p-2">
-                <div id="image"></div>
-                <div class="card-body">
-                    <h4 id="name"></h4>
-                    <div id="desc"></div>
-                    <div>Elevation: <span id="elevation"></span> ft</div>
-                    <div>Effort: <span id="effort"></span></div>
+                <div class="row">
+                    <div class="col-6"><div id="image"></div></div>
+                    <div class="col-6">
+                        <div class="card-body">
+                            <h4 id="name"></h4>
+                            <div id="desc"></div>
+                            <div class="mt-3">Elevation: <span id="elevation"></span> ft</div>
+                            <div>Effort: <span id="effort"></span></div>
+                            <div>Sunrise today: <span id="sunrise"></span> UTC</div>
+                            <div>Sunset today: <span id="sunset"></span> UTC</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
