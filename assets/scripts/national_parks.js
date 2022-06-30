@@ -48,6 +48,9 @@ let searchDropdownByType = document.querySelector("#searchDropdownByType");
 const parksTable = document.querySelector("#parksTable");
 const parksTableBody = document.querySelector("#parksTable tbody");
 
+let numText = document.querySelector("#numText");
+let numMatch = document.querySelector("#numMatch");
+
 // console.log(searchByLocationRadio);
 // console.log(searchByParkTypeRadio);
 
@@ -55,6 +58,7 @@ const parksTableBody = document.querySelector("#parksTable tbody");
 searchByLocationRadio.addEventListener("click", function(event) {
     console.log('location radio click');
 
+    numText.classList.add("d-none");
     parksTable.classList.add("d-none");
     searchDropdownByLocation.value = "";
 
@@ -79,6 +83,7 @@ searchByLocationRadio.addEventListener("click", function(event) {
 searchByParkTypeRadio.addEventListener("click", function(event) {
     console.log('type radio click');
 
+    numText.classList.add("d-none");
     parksTable.classList.add("d-none");
     searchDropdownByType.value = "";
 
@@ -100,6 +105,7 @@ searchByParkTypeRadio.addEventListener("click", function(event) {
 viewAllParksRadio.addEventListener("click", function(event) {
     console.log("view all clicked");
 
+    numText.classList.add("d-none");
     searchDropdownByLocation.classList.add("d-none");
     searchDropdownByType.classList.add("d-none");
 
@@ -133,6 +139,10 @@ searchDropdownByType.addEventListener("change", function(event) {
 
 
 function generateParksDisplay(sourceArray) {
+    numMatch.innerHTML = sourceArray.length;
+    numText.classList.remove("d-none");
+
+
     parksTableBody.innerHTML = "";
 
     sourceArray.forEach(park => {
