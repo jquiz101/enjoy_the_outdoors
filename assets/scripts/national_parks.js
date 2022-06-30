@@ -120,7 +120,7 @@ searchDropdownByLocation.addEventListener("change", function(event) {
     console.log("find parks in: " + searchDropdownByLocation.value);
 
     let filteredParks = nationalParksArray.filter((park) => {
-        return park.State.toLowerCase() === this.value.toLowerCase();
+        return park.State.toLowerCase() === event.target.value.toLowerCase();
     });
 
     generateParksDisplay(filteredParks);
@@ -131,7 +131,7 @@ searchDropdownByType.addEventListener("change", function(event) {
     console.log("find parks of type: " + this.value);
 
     let filteredParksByType = nationalParksArray.filter((park) => {
-        return park.LocationName.toLowerCase().indexOf(this.value.toLowerCase()) > -1;
+        return park.LocationName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1;
     });
 
     generateParksDisplay(filteredParksByType);
