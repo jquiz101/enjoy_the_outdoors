@@ -42,6 +42,8 @@ btnLucky.addEventListener("click", function(event) {
     const idxMtn = mountainsArray[idx];
     console.log(idxMtn);
 
+    mountainsDropdown.value = idxMtn.name;
+
     displayMountain(idxMtn);
 });
 
