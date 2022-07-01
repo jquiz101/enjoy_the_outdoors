@@ -62,7 +62,7 @@ searchByLocationRadio.addEventListener("click", function(event) {
     parksTable.classList.add("d-none");
     searchDropdownByLocation.value = "";
 
-    console.log("length: " + searchDropdownByLocation.options.length);
+    // console.log("length: " + searchDropdownByLocation.options.length);
 
     if (searchDropdownByLocation.options.length <= 1) {
         locationsArray.forEach((location) => {
@@ -114,10 +114,10 @@ viewAllParksRadio.addEventListener("click", function(event) {
 
 // find parks based on location
 searchDropdownByLocation.addEventListener("change", function(event) {
-    console.log("find parks in: " + this.value);
-    console.log("find parks in: " + event.target);  // the thing that the event happened on
-    console.log("find parks in: " + event.target.value);  // this is better; scalable, testable
-    console.log("find parks in: " + searchDropdownByLocation.value);
+    // console.log("find parks in: " + this.value);
+    // console.log("find parks in: " + event.target);  // the thing that the event happened on
+    // console.log("find parks in: " + event.target.value);  // this is better; scalable, testable
+    // console.log("find parks in: " + searchDropdownByLocation.value);
 
     let filteredParks = nationalParksArray.filter((park) => {
         return park.State.toLowerCase() === event.target.value.toLowerCase();

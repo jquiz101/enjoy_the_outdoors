@@ -23,11 +23,11 @@ setTimeout(() => {
 
 // load single mountain info based on dropdown selection
 mountainsDropdown.addEventListener("change", function(event) {
-    console.log(event.target.value);
+    // console.log(event.target.value);
 
     const foundMtn = mountainsArray.find(mountain => mountain.name === event.target.value);
 
-    console.log(foundMtn);
+    // console.log(foundMtn);
 
     displayMountain(foundMtn);
 });
@@ -39,12 +39,12 @@ btnLucky.addEventListener("click", function(event) {
     let idx = Math.floor(Math.random() * mountainsArray.length);
     // console.log(idx);
 
-    const idxMtn = mountainsArray[idx];
-    console.log(idxMtn);
+    const randomMtn = mountainsArray[idx];
+    // console.log(randomMtn);
 
-    mountainsDropdown.value = idxMtn.name;
+    mountainsDropdown.value = randomMtn.name;
 
-    displayMountain(idxMtn);
+    displayMountain(randomMtn);
 });
 
 function displayMountain(foundMtn) {
@@ -56,7 +56,7 @@ function displayMountain(foundMtn) {
     mtnImage.innerHTML = `<img src="assets/images/mountains/${foundMtn.img}">`;
 
     getSunsetForMountain(foundMtn.coords.lat, foundMtn.coords.lng).then(sunsetData => {
-        console.log(sunsetData.results)
+        // console.log(sunsetData.results)
         mtnSunrise.innerHTML = sunsetData.results.sunrise;
         mtnSunset.innerHTML = sunsetData.results.sunset;
     });
